@@ -5,9 +5,12 @@ const NotesList = ({
 	notes,
 	handleAddNote,
 	handleDeleteNote,
+	HandleOpneNoteDetail,
+	HandleCloseNoteDetail
 }) => {
 	return (
-		<div className='bg-blue-500 border-black border-[1px] px-2 py-2 flex justify-center'>
+		<div className='bg-blue-500 border-black border-[1px] px-2 py-2   '>
+		<div className="flex justify-center flex-wrap w-[80vw] mx-auto">
 			{notes.map((note) => (
 				<Note
 					id={note.id}
@@ -16,7 +19,11 @@ const NotesList = ({
 					handleDeleteNote={handleDeleteNote}
 				/>
 			))}
-			<AddNote handleAddNote={handleAddNote} />
+		
+			<AddNote HandleOpneNoteDetail={HandleOpneNoteDetail}
+		
+			 />
+			</div>
 		</div>
 	);
 };

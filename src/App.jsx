@@ -6,12 +6,18 @@ import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
 
 const App = () => {
-	const [SaveNote, setSaveNote] = useState(false)
+  const [SaveNote, setSaveNote] = useState(false);
+  const [BlurWhileNew, setBlurWhileNew] = useState(false);
 
-	const handleSaveNote = () => {
-		if(SaveNote)
-		setSaveNote(!setNotes)
-	}
+  const HandleOpenNoteDetail = () => {
+    setSaveNote(!SaveNote);
+    console.log("hello");
+  };
+
+  const HandleCloseNoteDetail = () => {
+    setSaveNote();
+  };
+
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -66,12 +72,17 @@ const App = () => {
   return (
     <>
       <Header />
-	  <AddNoteDetails />
+      <AddNoteDetails
+        SaveNote={SaveNote}
+        HandleCloseNoteDetail={HandleCloseNoteDetail}
+      />
 
-      <NotesList className=""
+      <NotesList
+        className=""
         notes={notes.filter((note) => note.text.toLowerCase())}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
+        HandleOpneNoteDetail={HandleOpenNoteDetail}
       />
     </>
   );

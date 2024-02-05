@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 
-const AddNote = ({ handleAddNote }) => {
-  const [noteText, setNoteText] = useState("");
+const AddNote = ({
+  HandleOpneNoteDetail,
+  
+
+}) => {
+  const [noteText, setNoteText] = useState();
   const characterLimit = 200;
 
   const handleChange = (event) => {
@@ -21,8 +25,8 @@ const AddNote = ({ handleAddNote }) => {
   return (
    
 	
-	 <div className="flex justify-center items-center">
-      <div className="rounded-full p-3 bg-gray-400 hover:bg-gray-200 text-black ">
+	 <div className="flex justify-center items-center" onClick={HandleOpneNoteDetail}>
+      <div className="rounded-full p-3 bg-gray-400 hover:bg-gray-200 text-black  " >
 
         <FaPlus />
       </div>
@@ -35,3 +39,47 @@ const AddNote = ({ handleAddNote }) => {
 };
 
 export default AddNote;
+
+
+
+// import { useState } from 'react';
+
+// const AddNote = ({ handleAddNote }) => {
+// 	const [noteText, setNoteText] = useState('');
+// 	const characterLimit = 200;
+
+// 	const handleChange = (event) => {
+// 		if (characterLimit - event.target.value.length >= 0) {
+// 			setNoteText(event.target.value);
+// 		}
+// 	};
+
+// 	const handleSaveClick = () => {
+// 		if (noteText.trim().length > 0) {
+// 			handleAddNote(noteText);
+// 			setNoteText('');
+// 		}
+// 	};
+
+// 	return (
+// 		<div className='note new'>
+// 			<textarea 
+// 				rows='8'
+// 				cols='10'
+// 				placeholder='Type to add a note...'
+// 				value={noteText}
+// 				onChange={handleChange}
+// 			></textarea>
+// 			<div className='note-footer'>
+// 				<small>
+// 					{characterLimit - noteText.length} Remaining
+// 				</small>
+// 				<button className='save' onClick={handleSaveClick}>
+// 					Save
+// 				</button>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+// export default AddNote;
