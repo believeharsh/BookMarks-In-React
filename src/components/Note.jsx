@@ -4,8 +4,8 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
 	return (
 		<div className='bg-yellow-400 border-black border-[1px] mx-1 my-1 px-3 py-2 rounded-xl max-w-[150px] '>
 			<span>{text}</span>
-			<div className='note-footer'>
-				<small>{date}</small>
+			<div className=''>
+			
 				<MdDeleteForever
 					onClick={() => handleDeleteNote(id)}
 					className='delete-icon'
