@@ -3,10 +3,10 @@ import AddNote from './AddNote';
 
 const NotesList = ({
 	notes,
-	handleAddNote,
 	handleDeleteNote,
 	HandleOpneNoteDetail,
-	BlurWhileNew
+	BlurWhileNew,
+
 }) => {
 	return (
 		<div className={`bg-blue-500 border-black border-[1px] px-2 py-2  ${BlurWhileNew ? 'blur-sm' : ''}`}>
@@ -14,13 +14,15 @@ const NotesList = ({
 			{notes.map((note) => (
 				<Note
 					id={note.id}
-					text={note.text}
-					date={note.date}
+					name={note.name}
+					url={note.url}
+				
 					handleDeleteNote={handleDeleteNote}
 				/>
 			))}
 		
 			<AddNote HandleOpneNoteDetail={HandleOpneNoteDetail}
+			
 		
 			 />
 			</div>

@@ -3,6 +3,7 @@ import { FaPlus } from "react-icons/fa6";
 
 const AddNote = ({
   HandleOpneNoteDetail,
+
   
 
 }) => {
