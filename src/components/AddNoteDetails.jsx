@@ -8,7 +8,7 @@ const AddNoteDetails = ({
   return (
     <>
       <div
-        className={`w-full max-w-xs ${
+        className={`w-full max-w-xl z-[15] ${
           SaveNote ? "visible" : "hidden"
         } fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] `}
       >

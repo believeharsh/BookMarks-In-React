@@ -8,13 +8,15 @@ const App = () => {
   const [SaveNote, setSaveNote] = useState(false);
   const [BlurWhileNew, setBlurWhileNew] = useState(false);
 
+
   const HandleOpenNoteDetail = () => {
     setSaveNote(!SaveNote);
-    console.log("hello");
+    setBlurWhileNew(!BlurWhileNew)
   };
 
   const HandleCloseNoteDetail = () => {
     setSaveNote();
+    setBlurWhileNew()
   };
 
   const [notes, setNotes] = useState([
@@ -82,6 +84,8 @@ const App = () => {
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
         HandleOpneNoteDetail={HandleOpenNoteDetail}
+        BlurWhileNew={BlurWhileNew}
+        
       />
     </>
   );
