@@ -1,10 +1,24 @@
 import React from "react";
+import { useState } from "react";
 
-const AddNoteDetails = ({
-  SaveNote,
-  HandleCloseNoteDetail
+const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => {
+  const [noteText, setNoteText] = useState("");
+  const [noteurl, setnoteurl] = useState("");
+  const characterLimit = 20;
 
-}) =>  {
+  const handleChange = (event) => {
+    if (characterLimit - event.target.value.length >= 0) {
+      setNoteText(event.target.value);
+    }
+  };
+
+  const handleSaveClick = () => {
+    if (noteText.trim().length > 0) {
+      handleAddNote(noteText);
+      setNoteText("");
+    }
+  };
+
   return (
     <>
       <div
@@ -24,7 +38,8 @@ const AddNoteDetails = ({
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
               type="text"
-              placeholder="Github"
+              value={noteText}
+             
             />
           </div>
           <div className="mb-6">
@@ -37,29 +52,30 @@ const AddNoteDetails = ({
             <input
               className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
-              type="password"
+              type="text"
               placeholder="https://Github.com"
+             
             />
           </div>
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              onClick={handleSaveClick}
             >
               Save
             </button>
-            <button onClick={HandleCloseNoteDetail}
+            <button
+              onClick={HandleCloseNoteDetail}
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              
             >
               Cancle
             </button>
           </div>
         </div>
-       
       </div>
     </>
   );
-}
+};
 
 export default AddNoteDetails;

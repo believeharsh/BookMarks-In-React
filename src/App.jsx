@@ -22,23 +22,23 @@ const App = () => {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: "This is my first note!",
-      date: "15/04/2021",
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/believeharsh11/",
     },
     {
       id: nanoid(),
-      text: "This is my second note!",
-      date: "21/04/2021",
+      name: "Github",
+      url: "https://www.linkedin.com/in/believeharsh11/",
     },
     {
       id: nanoid(),
-      text: "This is my third note!",
-      date: "28/04/2021",
+      name: "Instagram",
+      url: "https://www.linkedin.com/in/believeharsh11/",
     },
     {
       id: nanoid(),
-      text: "This is my new note!",
-      date: "30/04/2021",
+      name: "YouTube",
+      url: "https://www.linkedin.com/in/believeharsh11/",
     },
   ]);
 
@@ -55,11 +55,12 @@ const App = () => {
   }, [notes]);
 
   const addNote = (text) => {
-    const date = new Date();
+    
     const newNote = {
       id: nanoid(),
-      text: text,
-      date: date.toLocaleDateString(),
+      name: text,
+      url : text
+   
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
@@ -76,12 +77,13 @@ const App = () => {
       <AddNoteDetails
         SaveNote={SaveNote}
         HandleCloseNoteDetail={HandleCloseNoteDetail}
+        handleAddNote={addNote}
       />
 
       <NotesList
         className=""
-        notes={notes.filter((note) => note.text.toLowerCase())}
-        handleAddNote={addNote}
+        notes={notes}
+   
         handleDeleteNote={deleteNote}
         HandleOpneNoteDetail={HandleOpenNoteDetail}
         BlurWhileNew={BlurWhileNew}
