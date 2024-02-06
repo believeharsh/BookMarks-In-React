@@ -18,7 +18,8 @@ const Note = ({ id, name, url,  handleDeleteNote }) => {
 		<div className="bg-tranparent  hover:border-[1px] mx-1 my-1 px-3 py-2 rounded-xl w-[70px] h-[70px] hover:bg-gray-400 hover:border-black hover:text-white  hover:font-thin relative">
 		    <AiOutlineEllipsis className='absolute right-1 text-white text-xl '/>
 	        <a href={url} className='text-xl ' target='_blank'>
-				<img src={url} alt="" />
+				{/* <img src={url} alt="" /> */}
+				{name}
 			</a>
 		 </div>
 	);
