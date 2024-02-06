@@ -3,10 +3,18 @@ import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
+import NoteMenu from "./components/NoteMenu";
 
 const App = () => {
   const [SaveNote, setSaveNote] = useState(false);
   const [BlurWhileNew, setBlurWhileNew] = useState(false);
+  const [OpenMenu, setOpenMenu] = useState(false)
+
+	const handleOpenMenu = () => {
+		setOpenMenu(!OpenMenu)
+		}
+	
+	
 
 
   const HandleOpenNoteDetail = () => {
@@ -74,6 +82,7 @@ const App = () => {
   return (
     <>
       <Header />
+    
       <AddNoteDetails
         SaveNote={SaveNote}
         HandleCloseNoteDetail={HandleCloseNoteDetail}
@@ -83,10 +92,13 @@ const App = () => {
       <NotesList
         className=""
         notes={notes}
+        OpenMenu={OpenMenu}
+        handleOpenMenu={handleOpenMenu}
    
         handleDeleteNote={deleteNote}
         HandleOpneNoteDetail={HandleOpenNoteDetail}
         BlurWhileNew={BlurWhileNew}
+      
         
       />
     </>

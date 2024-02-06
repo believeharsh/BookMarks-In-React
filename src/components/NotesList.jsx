@@ -6,6 +6,8 @@ const NotesList = ({
 	handleDeleteNote,
 	HandleOpneNoteDetail,
 	BlurWhileNew,
+	OpenMenu,
+	handleOpenMenu
 
 }) => {
 	return (
@@ -16,6 +18,8 @@ const NotesList = ({
 					id={note.id}
 					name={note.name}
 					url={note.url}
+					OpenMenu={OpenMenu}
+					handleOpenMenu={handleOpenMenu}
 				
 					handleDeleteNote={handleDeleteNote}
 				/>
