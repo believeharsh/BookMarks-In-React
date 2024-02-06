@@ -6,7 +6,7 @@ import AddNoteDetails from "./components/AddNoteDetails";
 import NoteMenu from "./components/NoteMenu";
 
 const App = () => {
-  const [SaveNote, setSaveNote] = useState(false);
+  const [SaveNote, setSaveNote] = useState();
   const [BlurWhileNew, setBlurWhileNew] = useState(false);
   const [OpenMenu, setOpenMenu] = useState(false)
 
@@ -14,11 +14,8 @@ const App = () => {
 		setOpenMenu(!OpenMenu)
 		}
 	
-	
-
-
   const HandleOpenNoteDetail = () => {
-    setSaveNote(!SaveNote);
+    setSaveNote(SaveNote);
     setBlurWhileNew(!BlurWhileNew)
   };
 
@@ -51,7 +48,7 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
+    const savedNotes = JSON.parse(localStorage.getItem("BookMarks-Data"));
 
     if (savedNotes) {
       setNotes(savedNotes);
@@ -59,7 +56,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+    localStorage.setItem("BookMarks-Data", JSON.stringify(notes));
   }, [notes]);
 
   const addNote = (text) => {

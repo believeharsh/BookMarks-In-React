@@ -38,7 +38,7 @@ const Note = ({ id, name, url,  handleDeleteNote, OpenMenu, handleOpenMenu}) => 
 				{name}
 			</a>
 			<div className="">
-			<NoteMenu OpenMenu={OpenMenu}
+			<NoteMenu OpenMenu={OpenMenu} handleDeleteNote={handleDeleteNote} id={id}
 			
 			
 			  />
