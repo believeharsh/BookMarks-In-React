@@ -72,11 +72,12 @@ const App = () => {
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
+
   };
 
   const deleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
-    setNotes(newNotes);
+    const DeletedNoted = notes.filter((note) => note.id !== id);
+    setNotes(DeletedNoted);
   };
 
   return (

@@ -2,20 +2,22 @@ import React from "react";
 import { useState } from "react";
 
 const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => {
-  const [noteText, setNoteText] = useState("");
+  const [noteText, setnoteText] = useState("");
   const [noteurl, setnoteurl] = useState("");
-  const characterLimit = 20;
+  const NoteTextcharacterLimit = 20;
 
   const handleChange = (event) => {
-    if (characterLimit - event.target.value.length >= 0) {
-      setNoteText(event.target.value);
+    if (NoteTextcharacterLimit - event.target.value.length >= 0) {
+      setnoteText(event.target.value);
     }
   };
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      handleAddNote(noteText);
-      setNoteText("");
+      handleAddNote(noteText , noteurl);
+      setnoteText("");
+      setnoteurl("")
+      HandleCloseNoteDetail()
     }
   };
 
@@ -38,7 +40,7 @@ const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => 
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
               type="text"
-              value={noteText}
+              value={noteText}  onChange={handleChange}
              
             />
           </div>
@@ -54,6 +56,10 @@ const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => 
               id="password"
               type="text"
               placeholder="https://Github.com"
+              value={noteurl}
+              onChange={e => setnoteurl(e.target.value)}
+         
+            
              
             />
           </div>
