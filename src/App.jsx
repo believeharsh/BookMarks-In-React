@@ -51,16 +51,17 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
+    localStorage.setItem("Boomarks-app-Data", JSON.stringify(notes));
+  }, [notes]);
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem("Boomarks-app-Data"));
 
     if (savedNotes) {
       setNotes(savedNotes);
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
-  }, [notes]);
 
   const addNote = (text) => {
     
