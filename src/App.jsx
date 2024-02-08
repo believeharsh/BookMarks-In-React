@@ -76,6 +76,7 @@ const App = () => {
   const deleteNote = (id) => {
     const DeletedNoted = notes.filter((note) => note.id !== id);
     setNotes(DeletedNoted);
+    console.log(id)
   };
 
   return (
