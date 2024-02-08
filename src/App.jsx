@@ -36,17 +36,17 @@ const App = () => {
     {
       id: nanoid(),
       name: "Github",
-      url: "https://www.linkedin.com/in/believeharsh11/",
+      url: "https://www.github.com",
     },
     {
       id: nanoid(),
       name: "Instagram",
-      url: "https://www.linkedin.com/in/believeharsh11/",
+      url: "https://www.instagram.com/",
     },
     {
       id: nanoid(),
       name: "YouTube",
-      url: "https://www.linkedin.com/in/believeharsh11/",
+      url: "https://www.youtube.com/",
     },
   ]);
 
@@ -63,12 +63,12 @@ const App = () => {
   }, []);
 
 
-  const addNote = (text) => {
+  const addNote = (bookmark) => {
     
     const newNote = {
-      id: nanoid(),
-      name: text,
-      url : text
+      id: bookmark.id,
+      name: bookmark.name,
+      url : bookmark.url
    
     };
     const newNotes = [...notes, newNote];

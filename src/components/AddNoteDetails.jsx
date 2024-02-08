@@ -1,9 +1,11 @@
+import { nanoid } from "nanoid";
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, memo} from "react";
 
 const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => {
   const [noteText, setnoteText] = useState("");
   const [noteurl, setnoteurl] = useState("");
+  const nameRef = useRef();
   const NoteTextcharacterLimit = 20;
 
   const handleChange = (event) => {
@@ -14,7 +16,7 @@ const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => 
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      handleAddNote(noteText , noteurl);
+      handleAddNote( {id:nanoid() , name:noteText, url:noteurl});
       setnoteText("");
       setnoteurl("")
       HandleCloseNoteDetail()
@@ -41,6 +43,7 @@ const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => 
               id="name"
               type="text"
               value={noteText}  onChange={handleChange}
+              ref={nameRef}
              
             />
           </div>
@@ -84,4 +87,4 @@ const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => 
   );
 };
 
-export default AddNoteDetails;
+export default memo(AddNoteDetails);
