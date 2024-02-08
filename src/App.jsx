@@ -3,7 +3,6 @@ import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
-import NoteMenu from "./components/NoteMenu";
 
 const App = () => {
   const [SaveNote, setSaveNote] = useState(false);
@@ -47,18 +46,21 @@ const App = () => {
     },
   ]);
 
-  useEffect(() => {
-    localStorage.setItem("Boomarks-app-Data", JSON.stringify(notes));
-  }, [notes]);
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("Boomarks-app-Data"));
+    const json = JSON.stringify(notes);
+    localStorage.setItem("Bookmarks-app-Data", json);
+  }, [notes])
 
-    if (savedNotes) {
-      setNotes(savedNotes);
+  useEffect(() => {
+    const json = localStorage.getItem("Bookmarks-app-Data");
+    const loadedBookmarks = JSON.parse(json);
+    if (loadedBookmarks) {
+      setNotes(loadedBookmarks)
     }
   }, []);
 
+ 
 
   const addNote = (bookmark) => {
     
