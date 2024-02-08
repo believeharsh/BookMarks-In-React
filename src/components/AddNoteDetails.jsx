@@ -16,7 +16,7 @@ const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => 
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      handleAddNote( {id:nanoid() , name:noteText, url:noteurl});
+      handleAddNote( {BM:nanoid() , name:noteText, url:noteurl});
       setnoteText("");
       setnoteurl("")
       HandleCloseNoteDetail()

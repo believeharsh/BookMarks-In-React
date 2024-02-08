@@ -15,7 +15,7 @@ const NotesList = ({
 		<div className="flex justify-center flex-wrap w-[80vw] mx-auto">
 			{notes.map((BM) => (
 				<Note key={BM.id}
-				    Bm={BM}
+				    id={BM}
 					OpenMenu={OpenMenu}
 					handleOpenMenu={handleOpenMenu}
 				

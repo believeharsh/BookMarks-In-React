@@ -14,9 +14,6 @@ const App = () => {
 		setOpenMenu(!OpenMenu)
 		}
 	
-	
-
-
   const HandleOpenNoteDetail = () => {
     setSaveNote(!SaveNote);
     setBlurWhileNew(!BlurWhileNew)
