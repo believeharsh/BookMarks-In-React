@@ -19,6 +19,7 @@ const NotesList = ({
 					OpenMenu={OpenMenu}
 					handleOpenMenu={handleOpenMenu}
                     handleDeleteNote={handleDeleteNote}
+					HandleOpneNoteDetail={HandleOpneNoteDetail}
 				/>
 			))}
 		

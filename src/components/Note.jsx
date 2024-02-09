@@ -2,7 +2,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { AiOutlineEllipsis } from "react-icons/ai";
 import NoteMenu from './NoteMenu';
 
-const Note = ({BM, handleDeleteNote, OpenMenu, handleOpenMenu}) => {
+const Note = ({BM, handleDeleteNote, OpenMenu, handleOpenMenu, HandleOpneNoteDetail}) => {
 
 	return (
 	
@@ -15,7 +15,7 @@ const Note = ({BM, handleDeleteNote, OpenMenu, handleOpenMenu}) => {
 				<span>{BM.name}</span>
 			</a>
 			<div className="">
-			<NoteMenu OpenMenu={OpenMenu} handleDeleteNote={handleDeleteNote} BM={BM}
+			<NoteMenu OpenMenu={OpenMenu} handleDeleteNote={handleDeleteNote} BM={BM} HandleOpneNoteDetail={HandleOpneNoteDetail}
 			
 			
 			  />
