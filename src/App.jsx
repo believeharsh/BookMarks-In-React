@@ -96,7 +96,6 @@ const App = () => {
         notes={notes}
         OpenMenu={OpenMenu}
         handleOpenMenu={handleOpenMenu}
-   
         handleDeleteNote={deleteNote}
         HandleOpneNoteDetail={HandleOpenNoteDetail}
         BlurWhileNew={BlurWhileNew}
