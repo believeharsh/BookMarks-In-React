@@ -3,6 +3,7 @@ import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
 
+
 const App = () => {
   const [SaveNote, setSaveNote] = useState(false);
   const [BlurWhileNew, setBlurWhileNew] = useState(false);
@@ -72,6 +73,7 @@ const App = () => {
 
   return (
     <>
+    <div className="MainContainerBg h-[100vh]">
       <Header />
     
       <AddNoteDetails
@@ -91,6 +93,7 @@ const App = () => {
       
         
       />
+      </div>
     </>
   );
 };
