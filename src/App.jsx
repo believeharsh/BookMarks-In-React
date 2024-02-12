@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
@@ -23,28 +22,18 @@ const App = () => {
     setBlurWhileNew()
   };
 
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/believeharsh11/",
-    },
-    {
-      id: nanoid(),
-      name: "Github",
-      url: "https://www.github.com",
-    },
-    {
-      id: nanoid(),
-      name: "Instagram",
-      url: "https://www.instagram.com/",
-    },
-    {
-      id: nanoid(),
-      name: "YouTube",
-      url: "https://www.youtube.com/",
-    },
-  ]);
+
+  const getDatafromLocal = () => {
+    let Data = localStorage.getItem("Bookmarks-app-Data");
+    if(Data){
+      return JSON.parse(localStorage.getItem("Bookmarks-app-Data"))
+    }
+    else{
+      return [];
+    }
+  }
+
+  const [notes, setNotes] = useState(getDatafromLocal);
 
 
   useEffect(() => {
