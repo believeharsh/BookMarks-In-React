@@ -10,20 +10,17 @@ const Note = ({
   HandleOpneNoteDetail,
 }) => {
   return (
-    <div className="bg-tranparent  hover:border-[1px] mx-1 my-1 px-3 py-2 rounded-xl w-[90px] h-[90px] hover:bg-gray-400 hover:border-black hover:text-white  hover:font-thin relative">
+    <div className="bg-tranparent  hover:border-[1px] mx-1 my-1 px-1 py-1 rounded-xl w-[90px] h-[70px] hover:bg-gray-400 hover:border-black hover:text-white  hover:font-thin relative">
 
-      <AiOutlineEllipsis
-        className="absolute right-1 text-white text-xl hover:bg-gray-200  p-[1px] hover:rounded-xl hover:text-black active:bg-green-800"
-        onClick={handleOpenMenu}
-      />
-      <div className="flex-col justify-center items-center mx-auto mt-0">
-        <div className="bg-gray-800 rounded-full flex justify-center items-center p-6  my-1">
+      <div className="flex-col justify-center items-center mx-auto ">
+        <div className="bg-gray-800 py-3 rounded-full flex justify-center items-center my-1">
           <a href={BM.url} className=" text-center" target="_blank">
             <img
+              className=""
               src={
                 "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" +
                 BM.url +
-                "&size=24"
+                "&size=12"
               }
               alt=""
             />

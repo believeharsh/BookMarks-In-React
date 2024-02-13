@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
+import { nanoid } from "nanoid";
 import AddNoteDetails from "./components/AddNoteDetails";
 
 
@@ -42,15 +43,6 @@ const App = () => {
     localStorage.setItem("Bookmarks-app-Data", json);
   }, [notes])
 
-  useEffect(() => {
-    const json = localStorage.getItem("Bookmarks-app-Data");
-    const loadedBookmarks = JSON.parse(json);
-    if (loadedBookmarks) {
-      setNotes(loadedBookmarks)
-    }
-  }, []);
-
- 
 
   const addNote = (bookmark) => {
     
@@ -73,7 +65,7 @@ const App = () => {
 
   return (
     <>
-    <div className="MainContainerBg h-[100vh]">
+    <div className="MainContainerBg fixed left-0 right-0 bottom-0 top-0 overflow-auto">
       <Header />
     
       <AddNoteDetails
