@@ -3,6 +3,7 @@ import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import { nanoid } from "nanoid";
 import AddNoteDetails from "./components/AddNoteDetails";
+import EditNotemenu from "./components/EditNotemenu";
 
 
 const App = () => {
@@ -85,6 +86,7 @@ const App = () => {
       
         
       />
+      <EditNotemenu/>
       </div>
     </>
   );
