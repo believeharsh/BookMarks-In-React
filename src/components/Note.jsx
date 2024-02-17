@@ -1,7 +1,6 @@
-import { MdDeleteForever } from "react-icons/md";
-import { AiOutlineEllipsis } from "react-icons/ai";
+import { CiMenuKebab } from "react-icons/ci";
 import NoteMenu from "./NoteMenu";
-import Deletenote from "./Deletenote";
+
 
 const Note = ({
   BM,
@@ -11,30 +10,30 @@ const Note = ({
   HandleOpneNoteDetail,
 }) => {
   return (
-    <div className="bg-tranparent  hover:border-[1px] mx-1 my-1 px-1 py-1 rounded-xl w-[90px] h-[70px] hover:bg-gray-400 hover:border-black hover:text-white  hover:font-thin relative">
-      <div className="flex-col justify-center items-center mx-auto ">
-        <div className="bg-gray-800 py-3 rounded-full my-1">
-          <a href={BM.url} className=" text-center" target="_blank">
+    <div className="group Container bg-tranparent  hover:border-[1px] mx-1 my-1 px-1 py-2 rounded-xl w-[90px] h-[80px] hover:bg-gray-400 hover:border-black   hover:font-thin relative">
+
+<div className="hidden group-hover:block group-hover:text-2xl text-black text-[5px] absolute right-[3px] top-[3px] cursor-pointer" onClick={handleOpenMenu}>
+  <p><CiMenuKebab /></p>
+</div>
+
+      <div className="">
+        <div className="bg-gray-800 py-3 rounded-full my-1 h-[45px] w-[45px] flex justify-center items-center mx-auto">
+          <a href={BM.url} className=" " target="_blank">
             <img
-              className=""
+              className="h-8 w-8 text-center"
               src={
                 "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" +
                 BM.url +
-                "&size=12"
+                ""
               }
               alt=""
             />
           </a>
 
-          {/* <div
-            className=" ml-5 text-white text-xl hover:bg-gray-200  p-[1px] hover:rounded-xl hover:text-black active:bg-green-800"
-            onClick={() => handleDeleteNote(BM.id)}
-          >
-            <Deletenote />
-          </div> */}
+        
         </div>
 
-        <p className="text-center">{BM.name}</p>
+        <p className="text-center mb-4">{BM.name}</p>
       </div>
      {
       OpenMenu ? 
