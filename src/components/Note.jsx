@@ -3,19 +3,21 @@ import NoteMenu from "./NoteMenu";
 
 const Note = ({
   BM,
-  handleDeleteNote,
-  OpenMenu,
   handleOpenMenu,
-  HandleOpneNoteDetail,
+  OpenMenu,
+  handleDeleteNote,
+  HandleOpneNoteDetail
+
 }) => {
+
   return (
     <div className="group Container bg-tranparent bg-blend-multiply hover:border-[1px] mx-1 my-1 px-1 py-2 rounded-xl w-[90px] h-[80px] hover:bg-gray-600 hover:border-black   hover:font-thin relative">
       <div
-        className="hidden group-hover:block group-hover:text-2xl text-black text-[5px] absolute right-[3px] top-[3px] cursor-pointer"
+        className="hidden group-hover:block group-hover:text-2xl text-black text-[5px] absolute right-[3px] top-[4px] cursor-pointer"
         onClick={handleOpenMenu}
       >
         <p>
-          <CiMenuKebab />
+          <CiMenuKebab  className="text-xl text-white"/>
         </p>
       </div>
 
@@ -36,7 +38,8 @@ const Note = ({
 
         <p className="text-center mb-4">{BM.name}</p>
       </div>
-      {OpenMenu ? (
+      {
+        OpenMenu ? 
         <div className="absolute top-6 left-0 right-0">
           <NoteMenu
             OpenMenu={OpenMenu}
@@ -45,9 +48,13 @@ const Note = ({
             HandleOpneNoteDetail={HandleOpneNoteDetail}
           />
         </div>
-      ) : (
+       : 
         <div className=""></div>
-      )}
+      } 
+
+       
+    
+       
     </div>
   );
 };
