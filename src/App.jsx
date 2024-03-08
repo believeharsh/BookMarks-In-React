@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
-import EditNotemenu from "./components/EditNotemenu";
+// import EditNotemenu from "./components/EditNotemenu";
 
 
 const App = () => {
@@ -85,7 +85,7 @@ const App = () => {
       
         
       />
-      <EditNotemenu/>
+      {/* <EditNotemenu/> */}
       </div>
     </>
   );

@@ -6,10 +6,10 @@ const Note = ({
   handleOpenMenu,
   OpenMenu,
   handleDeleteNote,
-  HandleOpneNoteDetail
-
+  HandleOpneNoteDetail,
+  Id
 }) => {
-
+  const UserId = Id;
   return (
     <div className="group Container bg-tranparent bg-blend-multiply hover:border-[1px] mx-1 my-1 px-1 py-2 rounded-xl w-[90px] h-[80px] hover:bg-gray-600 hover:border-black   hover:font-thin relative">
       <div
@@ -17,7 +17,7 @@ const Note = ({
         onClick={handleOpenMenu}
       >
         <p>
-          <CiMenuKebab  className="text-xl text-white"/>
+          <CiMenuKebab className="text-xl text-white" />
         </p>
       </div>
 
@@ -38,8 +38,7 @@ const Note = ({
 
         <p className="text-center mb-4">{BM.name}</p>
       </div>
-      {
-        OpenMenu ? 
+      {OpenMenu && (
         <div className="absolute top-6 left-0 right-0">
           <NoteMenu
             OpenMenu={OpenMenu}
@@ -48,13 +47,7 @@ const Note = ({
             HandleOpneNoteDetail={HandleOpneNoteDetail}
           />
         </div>
-       : 
-        <div className=""></div>
-      } 
-
-       
-    
-       
+      )}
     </div>
   );
 };

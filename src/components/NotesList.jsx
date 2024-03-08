@@ -18,6 +18,7 @@ const NotesList = ({
           <Note
             key={BM.id}
             BM={BM}
+            Id={BM.id}
             OpenMenu={OpenMenu}
             handleOpenMenu={handleOpenMenu}
             handleDeleteNote={handleDeleteNote}
