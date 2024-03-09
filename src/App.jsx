@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
-// import EditNotemenu from "./components/EditNotemenu";
+import EditNote from "./components/EditNote";
 
 
 const App = () => {
@@ -18,6 +18,11 @@ const App = () => {
     setSaveNote(!SaveNote);
     setBlurWhileNew(!BlurWhileNew)
   };
+  const OpneEditNote = (BM) => {
+    setSaveNote(!SaveNote)
+    setBlurWhileNew(!BlurWhileNew)
+    
+  }
 
   const HandleCloseNoteDetail = () => {
     setSaveNote();
@@ -60,21 +65,26 @@ const App = () => {
   const deleteNote = (id) => {
     const DeletedNoted = notes.filter((note) => note.id !== id);
     setNotes(DeletedNoted);
-    console.log(id)
+    
   };
 
   return (
     <>
     <div className="MainContainerBg fixed left-0 right-0 bottom-0 top-0 overflow-auto">
-      <Header />
-    
+    <div className="">
+    <Header />
+    </div>
+   
+      <div className="">
       <AddNoteDetails
         SaveNote={SaveNote}
         HandleCloseNoteDetail={HandleCloseNoteDetail}
         handleAddNote={addNote}
       />
-
-      <NotesList
+      </div>
+     
+       <div className="">
+       <NotesList
         className=""
         notes={notes}
         OpenMenu={OpenMenu}
@@ -82,10 +92,22 @@ const App = () => {
         handleDeleteNote={deleteNote}
         HandleOpneNoteDetail={HandleOpenNoteDetail}
         BlurWhileNew={BlurWhileNew}
+        OpneEditNote={OpneEditNote}
       
         
       />
-      {/* <EditNotemenu/> */}
+       </div>
+    
+      <div className="">
+      <EditNote 
+        SaveNote={SaveNote}
+        HandleCloseNoteDetail={HandleCloseNoteDetail}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+        BM={BM}
+      />
+      </div>
+      
       </div>
     </>
   );
