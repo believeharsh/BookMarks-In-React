@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NotesList from "./components/NotesList";
 import Header from "./components/Header";
 import AddNoteDetails from "./components/AddNoteDetails";
-import EditNote from "./components/EditNote";
+// import EditNote from "./components/EditNote";
 
 
 const App = () => {
@@ -18,10 +18,18 @@ const App = () => {
     setSaveNote(!SaveNote);
     setBlurWhileNew(!BlurWhileNew)
   };
-  const OpneEditNote = (BM) => {
+
+  
+  const OpneEditNote = () => {
     setSaveNote(!SaveNote)
     setBlurWhileNew(!BlurWhileNew)
     
+  }
+
+  const SingleUser = (id) => {
+    setSaveNote(!SaveNote);
+    setBlurWhileNew(!BlurWhileNew)
+  
   }
 
   const HandleCloseNoteDetail = () => {
@@ -62,6 +70,8 @@ const App = () => {
 
   };
 
+  
+
   const deleteNote = (id) => {
     const DeletedNoted = notes.filter((note) => note.id !== id);
     setNotes(DeletedNoted);
@@ -99,13 +109,13 @@ const App = () => {
        </div>
     
       <div className="">
-      <EditNote 
+      {/* <EditNote 
         SaveNote={SaveNote}
         HandleCloseNoteDetail={HandleCloseNoteDetail}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
-        BM={BM}
-      />
+    
+      /> */}
       </div>
       
       </div>

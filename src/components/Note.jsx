@@ -45,6 +45,7 @@ const Note = ({
             handleDeleteNote={handleDeleteNote}
             BM={BM}
             HandleOpneNoteDetail={HandleOpneNoteDetail}
+            Id={Id}
           />
         </div>
       )}
