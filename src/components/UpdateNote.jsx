@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useRef, memo} from "react";
-const UpdateNote = () => {
+const UpdateNote = ({SaveNote, HandleCloseNoteDetail , handleAddNote}) => {
     const [noteText, setnoteText] = useState("");
     const [noteurl, setnoteurl] = useState("");
     const nameRef = useRef();
@@ -13,6 +13,13 @@ const UpdateNote = () => {
       }
     };
 
+   const singleuser = () => {
+      const data = localStorage.getItem("Bookmarks-app-Data")
+      console.log(data)
+   }
+   useEffect(() => {
+    singleuser()
+   }, [])
    
     const handleSaveClick = () => {
       if (noteText.trim().length > 0) {

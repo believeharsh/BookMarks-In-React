@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import React from "react";
 import { useState, useRef, memo} from "react";
 
-const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote }) => {
+const AddNoteDetails = ({ SaveNote, HandleCloseNoteDetail , handleAddNote}) => {
   const [noteText, setnoteText] = useState("");
   const [noteurl, setnoteurl] = useState("");
   const nameRef = useRef();
