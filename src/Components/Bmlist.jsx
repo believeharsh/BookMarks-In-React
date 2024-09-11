@@ -41,15 +41,15 @@ const Bmlist = () => {
     }
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   return (
-    <div className="flex flex-wrap gap-4 m-1 mt-5 relative justify-center">
+    <div className="flex flex-wrap gap-4 m-2 mt-5 relative">
       {BookMark.map((BM) => {
         const isEditing = BM.id === editBM?.id;
         const isPanelOpen = panelOpenId === BM.id;
