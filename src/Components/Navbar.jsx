@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header() {
+function Navbar() {
   return (
    <>
     <div className="px-8 py-1 font-libre text-white ">
@@ -19,4 +19,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Navbar
