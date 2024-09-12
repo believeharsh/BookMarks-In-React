@@ -1,13 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 const EditingPannel = ({
-    panelRef,
+  panelRef,
   openEditPanel,
   handleDeleteBM,
   BM,
   handleClickOutside,
+  category
 }) => {
-  
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -22,15 +22,15 @@ const EditingPannel = ({
       >
         <button
           className="block px-4 py-1 text-sm w-full text-left hover:bg-gray-700"
-          onClick={() => openEditPanel(BM.id)}
+          onClick={() => openEditPanel(BM.id, category)}
         >
-        Edit
+          Edit
         </button>
         <button
           className="block px-4 py-1 text-sm w-full text-left hover:bg-gray-700"
-          onClick={() => handleDeleteBM(BM.id)}
+          onClick={() => handleDeleteBM(BM.id, category)}
         >
-         Delete
+          Delete
         </button>
       </div>
     </>

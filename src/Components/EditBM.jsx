@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel }) => {
+const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel, category }) => {
   const [editedText, setEditedText] = useState(BM.text);
   const [editedUrl, setEditedUrl] = useState(BM.url);
 
@@ -23,7 +23,7 @@ const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel }) 
       alert("Both text and URL cannot be empty");
       return;
     }
-    handleEditSubmit(BM.id, editedText, editedUrl);
+    handleEditSubmit(BM.id, editedText, editedUrl, category);
     closeEditPanel(); // Close the edit panel after submitting
   };
 
@@ -57,7 +57,7 @@ const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel }) 
           </button>
           <button
             type="button"
-            onClick={() => handleDeleteBM(BM.id)}
+            onClick={() => handleDeleteBM(BM.id, category)}
             className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
           >
             Delete

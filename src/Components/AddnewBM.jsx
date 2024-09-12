@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import { useBM } from "../BookMark-Context/BMContext-Provider";
 import { v4 as uuidv4 } from "uuid";
 
-const AddnewBM = () => {
+const AddnewBM = ({category}) => {
   const { handleAddBM, BookMark } = useBM();
   const [bookmarkText, setBookmarkText] = useState("");
   const [bookmarkUrl, setBookmarkUrl] = useState("");

@@ -11,12 +11,14 @@ const Socials = () => {
 
   return (
     <CategoryContainer>
-        <AddnewBM/>
+        <AddnewBM
+          category={"Social"}
+        />
         <Bmlist
           bookmarks={socialBookmarks}
           handleEditBM={handleEditBM}
           handleDeleteBM={handleDeleteBM}
-          category={"social"}
+          category={"Social"}
         />
       </CategoryContainer>
   );

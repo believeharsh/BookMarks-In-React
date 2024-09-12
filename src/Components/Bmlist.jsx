@@ -17,19 +17,12 @@ const Bmlist = ({bookmarks, category}) => {
   };
 
   const openEditPanel = (BmId) => {
-    const BMToEdit = BookMark.find((BM) => BM.id === BmId);
+    const BMToEdit = BookMark[category].find((BM) => BM.id === BmId);
     setEditBM(BMToEdit);
     setPanelOpenId(null); // Close the panel when opening the edit form
   };
 
-  const closeEditPanel = () => {
-    setEditBM(null); // Close the edit panel by setting editBM to null
-  };
-
-  const handleEditSubmit = (BmId, editedText, editedUrl) => {
-    handleEditBM(BmId, editedText, editedUrl);
-  };
-
+  
   const handleClickOutside = (e) => {
     if (
       panelRef.current &&
@@ -67,9 +60,10 @@ const Bmlist = ({bookmarks, category}) => {
               {isEditing ? (
                 <EditBookmark
                   BM={editBM}
-                  handleEditSubmit={handleEditSubmit}
+                  handleEditSubmit={handleEditBM}
                   handleDeleteBM={handleDeleteBM}
-                  closeEditPanel={closeEditPanel}
+                  closeEditPanel={setEditBM}
+                  category={category}
                 />
               ) : (
                 <>
@@ -98,6 +92,8 @@ const Bmlist = ({bookmarks, category}) => {
                     openEditPanel={openEditPanel}
                     handleDeleteBM={handleDeleteBM}
                     handleClickOutside={handleClickOutside}
+                    category={category}
+                    
                     
                   />
                 </>

@@ -10,7 +10,9 @@ const Tools = () => {
   const ToolsBookmarks = BookMark.Tools || [] ; 
   return (
     <CategoryContainer>
-      <AddnewBM />
+      <AddnewBM
+       category={"Tools"}
+       />
       <Bmlist
         bookmarks={ToolsBookmarks}
         handleEditBM={handleEditBM}

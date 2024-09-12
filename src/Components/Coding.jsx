@@ -13,7 +13,9 @@ const Coding = () => {
   return (
     <>
       <CategoryContainer>
-        <AddnewBM/>
+        <AddnewBM
+          category={"Coding"}
+        />
         <Bmlist
           bookmarks={codingBookmarks}
           handleEditBM={handleEditBM}

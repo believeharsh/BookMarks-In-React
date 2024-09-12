@@ -33,6 +33,7 @@ const BMContextProvider = ({ children }) => {
       return InitialBM;
     }
   });
+  // console.log("Bookmarks", BookMark)
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(BookMark));
@@ -44,18 +45,19 @@ const BMContextProvider = ({ children }) => {
     setBookMark(newBMArray) ; 
   }
 
-  const handleDeleteBM = (BMId) => {
-    const filteredBM = deleteBM(BookMark, BMId);
+  const handleDeleteBM = (BMId, category) => {
+    const filteredBM = deleteBM(BookMark, BMId, category);
     setBookMark(filteredBM);
   };
 
-  const handleEditBM = (BmId, editedText, editedUrl) => {
+  const handleEditBM = (BmId, editedText, editedUrl, category) => {
     const EditedBM = editBM(BookMark, BmId, {
       id : BmId, 
       text : editedText,
       url : editedUrl
 
-    });
+    }, 
+    category);
     setBookMark(EditedBM);
   };
 
