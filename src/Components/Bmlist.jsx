@@ -5,7 +5,7 @@ import CommonBM from "./CommonBM";
 import EditBookmark from "./EditBM";
 import EditingPannel from "./EditingPannel";
 
-const Bmlist = () => {
+const Bmlist = ({bookmarks, category}) => {
   const [editBM, setEditBM] = useState(null); // Track the bookmark being edited
   const [panelOpenId, setPanelOpenId] = useState(null);
   const { handleEditBM, handleDeleteBM, BookMark } = useBM();
@@ -41,16 +41,16 @@ const Bmlist = () => {
     }
   };
 
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex flex-wrap gap-4 m-2 mt-5 relative">
-      {BookMark.map((BM) => {
+      {bookmarks.map((BM) => {
         const isEditing = BM.id === editBM?.id;
         const isPanelOpen = panelOpenId === BM.id;
 

@@ -24,7 +24,9 @@ const AddnewBM = () => {
         id: uuidv4(),
         text: bookmarkText,
         url: bookmarkUrl,
-      });
+      },
+      category 
+    );
 
       // Reset input fields after submission
       setBookmarkText("");

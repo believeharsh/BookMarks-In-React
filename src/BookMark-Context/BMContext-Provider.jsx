@@ -4,16 +4,22 @@ import { useEffect, useState, useContext } from "react";
 import { addNewBM, deleteBM, editBM } from "../utils/BookMarkUtils";
 
 
-const InitialBM = [
-  {
-    id: uuidv4(),
-    text: "Vercel",
-    url: "https://vercel.com/harsh-dahiya-s-projects",
-  },
-  { id: uuidv4(), text: "Github", url: "https://github.com/believeharsh/" },
-  { id: uuidv4(), text: "Linkedin", url: "https://www.linkedin.com/feed/" },
-  { id: uuidv4(), text: "Youtube", url: "https://www.youtube.com/" },
-];
+const InitialBM = {
+  Social: [
+    { id: uuidv4(), text: "Github", url: "https://github.com/believeharsh/" },
+    { id: uuidv4(), text: "Linkedin", url: "https://www.linkedin.com/feed/" },
+    { id: uuidv4(), text: "Youtube", url: "https://www.youtube.com/" }
+  ],
+  Coding: [
+    { id: uuidv4(), text: "Vercel", url: "https://vercel.com/harsh-dahiya-s-projects" },
+  
+  ],
+  Tools: [
+    
+    { id: uuidv4(), text: "Vercel", url: "https://vercel.com/harsh-dahiya-s-projects" },
+    { id: uuidv4(), text: "Vercel", url: "https://example.com" },
+  ]
+};
 
 const LOCAL_STORAGE_KEY = "CodingBM";
 
@@ -33,8 +39,8 @@ const BMContextProvider = ({ children }) => {
   }, [BookMark]);
 
 
-  const handleAddBM = (BookMark, newBM) => {
-    const newBMArray = addNewBM(BookMark, newBM) ; 
+  const handleAddBM = (BookMark, newBM, category) => {
+    const newBMArray = addNewBM(BookMark, newBM, category ) ; 
     setBookMark(newBMArray) ; 
   }
 
