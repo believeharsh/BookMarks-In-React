@@ -2,7 +2,6 @@ import React from "react";
 import Bmlist from "./Bmlist";
 import { useBM } from "../BookMark-Context/BMContext-Provider"; // Assuming this provides your bookmarks
 import AddnewBM from "./AddnewBM";
-import CategoryContainer from "./CategoryCantainer";
 const Socials = () => {
   const { BookMark, handleEditBM, handleDeleteBM } = useBM();
 

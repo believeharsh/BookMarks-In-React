@@ -31,41 +31,41 @@ const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel, ca
     <div className="p-4  text-white bg-transparent w-full">
       <form onSubmit={onSubmit}>
         <div className="mb-2">
-          <label className="block text-sm font-bold mb-1">Text:</label>
+          <label className="EditingPanleLabels">Text:</label>
           <input
             type="text"
             value={editedText}
             onChange={handleTextChange}
-            className="w-full px-2 py-1 border rounded bg-gray-700"
+            className="EditingPanelInputs"
           />
         </div>
         <div className="mb-2">
-          <label className="block text-sm font-bold mb-1">URL:</label>
+          <label className="EditingPanleLabels">URL:</label>
           <input
             type="text"
             value={editedUrl}
             onChange={handleUrlChange}
-            className="w-full px-2 py-1 border rounded bg-gray-700"
+            className="EditingPanelInputs"
           />
         </div>
         <div className="flex justify-end gap-1">
           <button
             type="submit"
-            className=" text-white px-4 py-2  hover:border-[0.4px] rounded-xl hover:border-gray-400 "
+            className="EditingBM-Btn"
           >
             Save
           </button>
           <button
             type="button"
             onClick={() => handleDeleteBM(BM.id, category)}
-            className=" text-white px-4 py-2  hover:border-[0.4px] rounded-xl hover:border-gray-400 "
+            className="EditingBM-Btn"
           >
             Delete
           </button>
           <button
             type="button"
             onClick={closeEditPanel}
-            className=" text-white px-4 py-2  hover:border-[0.4px] rounded-xl hover:border-gray-400 "
+            className="EditingBM-Btn"
           >
             Cancel
           </button>
