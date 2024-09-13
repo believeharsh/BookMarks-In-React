@@ -14,7 +14,7 @@ export const addNewBM = (BookMark , newBM, category) => {
 
   
 export const deleteBM = (BookMark, BMId, category) => {
-  // Check if the category exists in BookMark
+  // Checking if the category exists in BookMark or not??
   if (!BookMark[category]) {
     console.error(`Category ${category} does not exist in BookMark.`);
     return BookMark; // Return unchanged BookMark or handle as needed
@@ -28,13 +28,13 @@ export const deleteBM = (BookMark, BMId, category) => {
 };
   
   export const editBM = (BookMark, BMId, newBM, category) => {
-    // Check if the category exists in BookMark
+   
     if (!BookMark[category]) {
       console.error(`Category ${category} does not exist in BookMark.`);
-      return BookMark; // Return unchanged BookMark or handle as needed
+      return BookMark; 
     }
   
-    // Return the updated BookMark object with the edited category
+    
     return {
       ...BookMark,
       [category]: BookMark[category].map((BM) =>

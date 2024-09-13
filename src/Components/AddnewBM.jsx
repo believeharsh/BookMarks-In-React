@@ -47,7 +47,7 @@ const AddnewBM = ({category}) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center space-x-4">
+      <form onSubmit={handleSubmit} className="flex items-center space-x-4 px-3">
         {/* First Child: Input Fields */}
         <div className="flex-1 flex space-x-2" style={{ width: "90%" }}>
           {/* Bookmark Text (25% width) */}
