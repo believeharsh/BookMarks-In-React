@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import { useBM } from "../BookMark-Context/BMContext-Provider";
 import { v4 as uuidv4 } from "uuid";
 
-const AddnewBM = ({category}) => {
+const AddnewBM = ({ category }) => {
   const { handleAddBM, BookMark } = useBM();
   const [bookmarkText, setBookmarkText] = useState("");
   const [bookmarkUrl, setBookmarkUrl] = useState("");
@@ -20,13 +20,15 @@ const AddnewBM = ({category}) => {
       setErrorMessage("");
 
       // Handle bookmark addition logic
-      handleAddBM(BookMark, {
-        id: uuidv4(),
-        text: bookmarkText,
-        url: bookmarkUrl,
-      },
-      category 
-    );
+      handleAddBM(
+        BookMark,
+        {
+          id: uuidv4(),
+          text: bookmarkText,
+          url: bookmarkUrl,
+        },
+        category
+      );
 
       // Reset input fields after submission
       setBookmarkText("");
@@ -47,7 +49,10 @@ const AddnewBM = ({category}) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center space-x-4 px-3">
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center space-x-4 mx-auto max-w-3xl pl-3"
+      >
         {/* First Child: Input Fields */}
         <div className="flex-1 flex space-x-2" style={{ width: "90%" }}>
           {/* Bookmark Text (25% width) */}
@@ -57,7 +62,7 @@ const AddnewBM = ({category}) => {
               value={bookmarkText}
               onChange={(e) => setBookmarkText(e.target.value)}
               placeholder="Name"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900 text-white"
+              className="NewBMInput"
             />
           </div>
 
@@ -68,16 +73,17 @@ const AddnewBM = ({category}) => {
               value={bookmarkUrl}
               onChange={(e) => setBookmarkUrl(e.target.value)}
               placeholder="URL"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900 text-white"
+              className="NewBMInput"
             />
           </div>
         </div>
 
         {/* Second Child: Add Button (10% width) */}
         <div className="flex-shrink-0" style={{ width: "10%" }}>
+        
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-gray-500 text-white rounded-md shadow hover:bg-blue-600 flex items-center justify-center "
+            className="Addnew-BM-btn"
           >
             <FaPlus />
           </button>
@@ -85,7 +91,7 @@ const AddnewBM = ({category}) => {
       </form>
 
       {/* Error message display */}
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      {errorMessage && <p style={{ color: "white ", paddingLeft : "15px" }}>{errorMessage}</p>}
     </>
   );
 };

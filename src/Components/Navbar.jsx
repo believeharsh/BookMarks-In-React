@@ -10,13 +10,13 @@ function Navbar() {
             <p>BookMarks.In</p>
           </div>
           <div className="flex justify-center items-center space-x-5 text-xl ">
-            <Link className="hover:border-b-[2px] cursor-pointer  border-white" to='social'>
+            <Link className="Navbar-BTN" to='social'>
               Social
             </Link>
-            <Link className="hover:border-b-[2px] cursor-pointer  border-white" to='coding'>
+            <Link className="Navbar-BTN" to='coding'>
               Coding
             </Link>
-            <Link className="hover:border-b-[2px] cursor-pointer border-white" to='tools'>
+            <Link className="Navbar-BTN" to='tools'>
               Tools
             </Link>
           </div>

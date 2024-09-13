@@ -61,7 +61,7 @@ const Bmlist = ({ bookmarks, category }) => {
                   </div>
 
                   <button
-                    className="absolute top-0 right-0 text-gray-500 hover:text-gray-700 focus:outline-none px-1 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    className="ThreeDotBTN"
                     onClick={() => togglePanel(BM.id)}
                     ref={buttonRef}
                   >
