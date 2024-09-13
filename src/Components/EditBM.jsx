@@ -28,7 +28,7 @@ const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel, ca
   };
 
   return (
-    <div className="p-4 border rounded text-white bg-transparent mx-auto">
+    <div className="p-4  text-white bg-transparent w-full">
       <form onSubmit={onSubmit}>
         <div className="mb-2">
           <label className="block text-sm font-bold mb-1">Text:</label>
@@ -48,24 +48,24 @@ const EditBookmark = ({ BM, handleEditSubmit, handleDeleteBM, closeEditPanel, ca
             className="w-full px-2 py-1 border rounded bg-gray-700"
           />
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-end gap-1">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className=" text-white px-4 py-2  hover:border-[0.4px] rounded-xl hover:border-gray-400 "
           >
             Save
           </button>
           <button
             type="button"
             onClick={() => handleDeleteBM(BM.id, category)}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            className=" text-white px-4 py-2  hover:border-[0.4px] rounded-xl hover:border-gray-400 "
           >
             Delete
           </button>
           <button
             type="button"
             onClick={closeEditPanel}
-            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+            className=" text-white px-4 py-2  hover:border-[0.4px] rounded-xl hover:border-gray-400 "
           >
             Cancel
           </button>

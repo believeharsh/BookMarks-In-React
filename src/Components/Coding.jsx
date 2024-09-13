@@ -8,21 +8,19 @@ const Coding = () => {
   const { BookMark, handleEditBM, handleDeleteBM } = useBM();
 
   // Filter bookmarks based on category (e.g., "social")
-  const codingBookmarks = BookMark.Coding || []; 
+  const codingBookmarks = BookMark.Coding || [];
 
   return (
     <>
-      <CategoryContainer>
-        <AddnewBM
-          category={"Coding"}
-        />
+      <div className="max-w-4xl mx-auto p-4">
+        <AddnewBM category={"Coding"} />
         <Bmlist
           bookmarks={codingBookmarks}
           handleEditBM={handleEditBM}
           handleDeleteBM={handleDeleteBM}
           category={"Coding"}
         />
-      </CategoryContainer>
+      </div>
     </>
   );
 };

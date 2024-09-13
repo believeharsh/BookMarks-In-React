@@ -4,8 +4,9 @@ import { useBM } from "../BookMark-Context/BMContext-Provider";
 import CommonBM from "./CommonBM";
 import EditBookmark from "./EditBM";
 import EditingPannel from "./EditingPannel";
+import CategoryContainer from "./CategoryCantainer";
 
-const Bmlist = ({bookmarks, category}) => {
+const Bmlist = ({ bookmarks, category }) => {
   const [editBM, setEditBM] = useState(null); // Track the bookmark being edited
   const [panelOpenId, setPanelOpenId] = useState(null);
   const { handleEditBM, handleDeleteBM, BookMark } = useBM();
@@ -22,7 +23,6 @@ const Bmlist = ({bookmarks, category}) => {
     setPanelOpenId(null); // Close the panel when opening the edit form
   };
 
-  
   const handleClickOutside = (e) => {
     if (
       panelRef.current &&
@@ -31,6 +31,7 @@ const Bmlist = ({bookmarks, category}) => {
       !buttonRef.current.contains(e.target)
     ) {
       setPanelOpenId(null);
+      setEditBM(null); // Close the edit panel too
     }
   };
 
@@ -42,31 +43,19 @@ const Bmlist = ({bookmarks, category}) => {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-4 m-2 mt-5 relative">
-      {bookmarks.map((BM) => {
-        const isEditing = BM.id === editBM?.id;
-        const isPanelOpen = panelOpenId === BM.id;
+    <CategoryContainer>
+      {/* Conditional rendering based on whether we're editing or not */}
+      {!editBM ? (
+        <div className="flex flex-wrap gap-4 m-2 mt-5">
+          {bookmarks.map((BM) => {
+            const isPanelOpen = panelOpenId === BM.id;
 
-        return (
-          <div
-            key={BM.id}
-            className={`${
-              !isEditing
-                ? "hover:border-[0.2px] hover:border-gray-100 rounded-xl"
-                : ""
-            }  group relative`}
-          >
-            <div className=" flex items-center  py-2 hover:rounded-xl justify-center px-4 ">
-              {isEditing ? (
-                <EditBookmark
-                  BM={editBM}
-                  handleEditSubmit={handleEditBM}
-                  handleDeleteBM={handleDeleteBM}
-                  closeEditPanel={setEditBM}
-                  category={category}
-                />
-              ) : (
-                <>
+            return (
+              <div
+                key={BM.id}
+                className="hover:border-[0.2px] hover:border-gray-100 rounded-xl group relative"
+              >
+                <div className="flex items-center py-2 hover:rounded-xl justify-center px-4 ">
                   <div className="flex justify-center items-center">
                     <CommonBM BM={BM} />
                   </div>
@@ -78,31 +67,37 @@ const Bmlist = ({bookmarks, category}) => {
                   >
                     <BsThreeDotsVertical />
                   </button>
-                </>
-              )}
-            </div>
+                </div>
 
-            <div className="">
-              {isPanelOpen && (
-                // Editing pannel for BookMarks
-                <>
-                  <EditingPannel
-                    BM={BM}
-                    panelRef={panelRef}
-                    openEditPanel={openEditPanel}
-                    handleDeleteBM={handleDeleteBM}
-                    handleClickOutside={handleClickOutside}
-                    category={category}
-                    
-                    
-                  />
-                </>
-              )}
-            </div>
-          </div>
-        );
-      })}
-    </div>
+                <div>
+                  {isPanelOpen && (
+                    <EditingPannel
+                      BM={BM}
+                      panelRef={panelRef}
+                      openEditPanel={openEditPanel}
+                      handleDeleteBM={handleDeleteBM}
+                      handleClickOutside={handleClickOutside}
+                      category={category}
+                    />
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        // Render EditBookmark component in place of the bookmarks when editing
+        <div className="flex items-center justify-center max-w-3xl">
+          <EditBookmark
+            BM={editBM}
+            handleEditSubmit={handleEditBM}
+            handleDeleteBM={handleDeleteBM}
+            closeEditPanel={() => setEditBM(null)} // Close the edit panel after submitting
+            category={category}
+          />
+        </div>
+      )}
+    </CategoryContainer>
   );
 };
 
